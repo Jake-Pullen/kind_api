@@ -7,7 +7,7 @@ Serves random compliments from a YAML file via REST API
 import os
 import yaml
 import random
-from flask import Flask, jsonify, abort, request
+from flask import Flask, jsonify, abort
 
 app = Flask(__name__)
 
@@ -37,6 +37,10 @@ def load_compliments():
 @app.route(f"/api/{API_VERSION}/compliment", methods=["GET"])
 def get_compliment():
     """Get a random compliment"""
+
+    if random.random() <= 0.01:
+        return jsonify({"error": "I'm a Teapot"}), 418
+
     compliments = load_compliments()
 
     if not compliments:
