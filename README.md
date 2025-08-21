@@ -6,17 +6,17 @@ A simple REST API that provides random compliments from a YAML file.
 
 ## 🚀 Features
 
-✅ Returns a random compliment from a YAML file.
-✅ Health check endpoint for monitoring.
-✅ Error handling for missing files or malformed YAML.
-✅ Secure YAML parsing (yaml.safe_load).
-✅ Easy to deploy with Docker(soon) or local development.
+✅ Returns a random compliment from a YAML file.  
+✅ Health check endpoint for monitoring.  
+✅ Error handling for missing files or malformed YAML.  
+✅ Secure YAML parsing (yaml.safe_load).  
+✅ Easy to deploy with Docker(soon) or local development.  
 
 ---
 
 ## 📦 Dependencies
 
-Uses UV for environment and package version handling;
+Uses UV for environment and package version handling: 
 [uv link](https://docs.astral.sh/uv/)
 
 `uv sync`
@@ -28,15 +28,15 @@ Uses UV for environment and package version handling;
 Your project should have these files:
 
 kind-api/
-├── kind_response.yaml        # Your YAML file with compliments
-├── main.py                   # Flask API script
-└── README.md                 # This file
+├── kind_response.yaml        # Your YAML file with compliments  
+├── main.py                   # Flask API script  
+└── README.md                 # This file  
 
 ---
 
 ## 🔧 Configuration
 
-1. YAML Format (kind_response.yaml)
+1. YAML Format (kind_response.yaml)  
 Ensure your YAML file follows this structure:
 
 ```
@@ -95,14 +95,14 @@ Run the server:
 
 Create a Dockerfile with:
 
-FROM python:3.10-slim
-WORKDIR /app
-COPY . .
-RUN pip install flask pyyaml
-CMD ["python3", "kind_api.py"]
-Build and run:
+FROM python:3.10-slim  
+WORKDIR /app  
+COPY . .  
+RUN pip install flask pyyaml  
+CMD ["python3", "kind_api.py"]  
+Build and run:  
 
-docker build -t kind-api .
+docker build -t kind-api .  
 docker run -p 5000:5000 kind-api
 
 ---
